@@ -1,6 +1,6 @@
 Track::Application.routes.draw do
   root :to => 'items#index'
-  resources :sessions, :only => [:create]
+  resources :sessions, :only => [:new, :create]
   resources :users, :only => [:new, :create]
   resources :items, :except => [:show] do
     resources :traces, :except => [:show]

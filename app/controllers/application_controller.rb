@@ -1,5 +1,6 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery
+  before_filter :authenticate_user!
 
   private
   def current_user
@@ -12,4 +13,8 @@ class ApplicationController < ActionController::Base
     session[:user_id] = user.id if user
   end
   helper_method :current_user=
+
+  def authenticate_user!
+    redirect_to new_session_path unless current_user
+  end
 end

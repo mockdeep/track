@@ -1,0 +1,20 @@
+%p
+  %b= item.name
+  = link_to('See Traces', item_traces_path(item))
+  = link_to('Add Trace', new_item_trace_path(item))
+  %br
+  %span.week
+    Week average:
+    = item.week_average
+  %br
+  %span.month
+    Month average:
+    = item.month_average
+  %br
+  %span.year
+    Year average:
+    = item.year_average
+  %br
+  %span.lifetime
+    Lifetime average:
+    = item.lifetime_average

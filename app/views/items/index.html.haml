@@ -1,0 +1,6 @@
+%h1 Items
+
+%h2= link_to('New Item', new_item_path)
+
+- @items.each do |item|
+  = render item

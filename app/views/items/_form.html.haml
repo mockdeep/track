@@ -1,0 +1,10 @@
+= form_for item do |form|
+  - if item.errors.any?
+    = render 'common/errors', :record => item
+
+  %p
+    = form.label :name
+    %br
+    = form.text_field :name
+  %p.button
+    = form.submit

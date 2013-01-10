@@ -1,0 +1,14 @@
+= form_for [item, trace] do |form|
+  - if trace.errors.any?
+    = render 'common/errors', :record => trace
+
+  %p
+    = form.label :count
+    %br
+    = form.text_field :count
+  %p
+    = form.label :executed_on
+    %br
+    = form.date_select :executed_on, :default => Time.zone.now
+  %p.button
+    = form.submit

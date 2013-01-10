@@ -1,4 +1,6 @@
 class SessionsController < ApplicationController
+  skip_before_filter :authenticate_user!
+
   def create
     if user = User.authenticate(params[:email], params[:password])
       self.current_user = user
