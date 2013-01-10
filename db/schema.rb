@@ -11,6 +11,36 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 0) do
+ActiveRecord::Schema.define(:version => 20130110035055) do
+
+  create_table "items", :force => true do |t|
+    t.integer  "user_id",                                         :null => false
+    t.string   "name",                                            :null => false
+    t.decimal  "lifetime_average", :precision => 15, :scale => 2
+    t.decimal  "year_average",     :precision => 15, :scale => 2
+    t.decimal  "month_average",    :precision => 15, :scale => 2
+    t.decimal  "week_average",     :precision => 15, :scale => 2
+    t.datetime "created_at",                                      :null => false
+    t.datetime "updated_at",                                      :null => false
+  end
+
+  create_table "traces", :force => true do |t|
+    t.integer  "item_id",     :null => false
+    t.datetime "executed_on", :null => false
+    t.integer  "count",       :null => false
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
+  end
+
+  add_index "traces", ["executed_on"], :name => "index_traces_on_executed_on"
+
+  create_table "users", :force => true do |t|
+    t.string   "email",           :null => false
+    t.string   "password_digest", :null => false
+    t.datetime "created_at",      :null => false
+    t.datetime "updated_at",      :null => false
+  end
+
+  add_index "users", ["email"], :name => "index_users_on_email"
 
 end
