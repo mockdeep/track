@@ -3,7 +3,9 @@ class Item < ActiveRecord::Base
     :lifetime_average, :name
   belongs_to :user
 
-  has_many :traces
+  has_many :traces, :dependent => :destroy
+
+  default_scope order("created_at DESC")
 
   validates :name, :user, :presence => true
 

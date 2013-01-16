@@ -3,13 +3,15 @@ class Trace < ActiveRecord::Base
 
   belongs_to :item
 
-  after_create :update_averages!
+  after_save :update_averages!
 
   delegate :user, :to => :item
 
-  scope :week, where("executed_on >= ?", 1.week.ago.beginning_of_day)
-  scope :month, where("executed_on >= ?", 1.month.ago.beginning_of_day)
-  scope :year, where("executed_on >= ?", 1.year.ago.beginning_of_day)
+  scope :week, where("executed_on >= ?", 1.week.ago)
+  scope :month, where("executed_on >= ?", 1.month.ago)
+  scope :year, where("executed_on >= ?", 1.year.ago)
+
+  default_scope order("executed_on DESC")
 
   validates :count, :item, :executed_on, :presence => true
 

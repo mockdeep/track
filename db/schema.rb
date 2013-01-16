@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130110035055) do
+ActiveRecord::Schema.define(:version => 20130116185212) do
 
   create_table "items", :force => true do |t|
     t.integer  "user_id",                                         :null => false
@@ -24,6 +24,9 @@ ActiveRecord::Schema.define(:version => 20130110035055) do
     t.datetime "updated_at",                                      :null => false
   end
 
+  add_index "items", ["created_at"], :name => "index_items_on_created_at"
+  add_index "items", ["user_id"], :name => "index_items_on_user_id"
+
   create_table "traces", :force => true do |t|
     t.integer  "item_id",     :null => false
     t.datetime "executed_on", :null => false
@@ -33,6 +36,7 @@ ActiveRecord::Schema.define(:version => 20130110035055) do
   end
 
   add_index "traces", ["executed_on"], :name => "index_traces_on_executed_on"
+  add_index "traces", ["item_id"], :name => "index_traces_on_item_id"
 
   create_table "users", :force => true do |t|
     t.string   "email",           :null => false
