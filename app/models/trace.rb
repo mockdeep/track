@@ -16,4 +16,10 @@ class Trace < ActiveRecord::Base
   def update_averages!
     item.update_averages!
   end
+
+  def self.day_count
+    start_date = minimum(:executed_on) || Time.zone.now
+    count = ((Time.zone.now - start_date) / 1.day).to_i
+    count > 0 ? count : 1
+  end
 end

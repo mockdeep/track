@@ -9,10 +9,10 @@ class Item < ActiveRecord::Base
 
   def update_averages!
     update_attributes({
-      :week_average => traces.week.average(:count),
-      :month_average => traces.month.average(:count),
-      :year_average => traces.year.average(:count),
-      :lifetime_average => traces.average(:count),
+      :week_average => traces.week.sum(:count) / min(7, traces.day_count),
+      :month_average => traces.month.sum(:count) / min(30, traces_day_count),
+      :year_average => traces.year.sum(:count) / min(365, traces.day_count),
+      :lifetime_average => traces.sum(:count) / traces.day_count,
     })
   end
 end
