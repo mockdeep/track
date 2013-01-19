@@ -9,6 +9,14 @@ describe Trace do
     it { should validate_presence_of(:item) }
     it { should validate_presence_of(:count) }
     it { should validate_presence_of(:executed_on) }
+
+    context 'when executed_on is in future' do
+      it 'returns false' do
+        trace = Trace.new(:executed_on => 2.days.from_now)
+        trace.should_not be_valid
+        trace.errors.full_messages.should include('Executed on cannot be in future')
+      end
+    end
   end
 
   describe 'scopes' do

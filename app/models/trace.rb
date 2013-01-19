@@ -14,6 +14,7 @@ class Trace < ActiveRecord::Base
   default_scope order("executed_on DESC")
 
   validates :count, :item, :executed_on, :presence => true
+  validate :executed_on_not_in_future
 
   def update_averages!
     item.update_averages!
@@ -23,5 +24,13 @@ class Trace < ActiveRecord::Base
     start_date = minimum(:executed_on) || Time.zone.now
     count = ((Time.zone.now - start_date) / 1.day).to_i
     count > 0 ? count : 1
+  end
+
+  private
+
+  def executed_on_not_in_future
+    if executed_on && executed_on > Time.zone.now
+      errors.add(:executed_on, "cannot be in future")
+    end
   end
 end
