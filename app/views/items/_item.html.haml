@@ -1,20 +1,17 @@
-%p
-  %b= item.name
-  = link_to('See Traces', item_traces_path(item))
-  = link_to('Add Trace', new_item_trace_path(item))
-  %br
-  %span.week
-    Week average:
-    = item.week_average
-  %br
-  %span.month
-    Month average:
-    = item.month_average
-  %br
-  %span.year
-    Year average:
-    = item.year_average
-  %br
-  %span.lifetime
-    Lifetime average:
-    = item.lifetime_average
+.row-fluid
+  .span3
+    .well.sidebar-nav
+      %ul.nav.nav-list
+        %li.nav-header= item.name
+        %li= link_to('See Traces', item_traces_path(item))
+        %li= link_to('Add Trace', new_item_trace_path(item))
+        %li= link_to("Edit Item", edit_item_path(item))
+        %li= link_to("Delete Item", item_path(item), :method => :delete)
+  .span9
+    .well.sidebar-nav
+      %ul.nav.nav-list
+        %li.nav-header Averages:
+        %li Week average: #{item.week_average}
+        %li Month average: #{item.month_average}
+        %li Year average: #{item.year_average}
+        %li Lifetime average: #{item.lifetime_average}

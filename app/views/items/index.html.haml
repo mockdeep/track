@@ -1,6 +1,6 @@
 %h1 Items
 
-%h2= link_to('New Item', new_item_path)
+%h4= link_to('Add New Item to Track', new_item_path)
 
 - @items.each do |item|
   = render item
