@@ -19,13 +19,7 @@ describe Item do
     let(:item) { trace.item }
 
     before :each do
-      item.update_attributes({
-        :week_average => 0,
-        :month_average => 0,
-        :year_average => 0,
-        :lifetime_average => 0,
-      })
-      item.update_averages!
+      item.traces.create(:count => 5)
     end
 
     it 'updates the week average' do
