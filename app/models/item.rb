@@ -9,6 +9,10 @@ class Item < ActiveRecord::Base
 
   validates :name, :user, :presence => true
 
+  def self.update_averages!
+    all.collect(&:update_averages!)
+  end
+
   def update_averages!
     update_attributes({
       :week_average => traces.week.sum(:count).to_f / [7, traces.day_count].min,
