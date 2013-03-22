@@ -1,5 +1,8 @@
 language: ruby
 rvm:
   - 1.9.3
+script:
+  - bundle exec rake db:test:prepare
+  - bundle exec rake
 before_script:
   - psql -c 'create database track_test;' -U postgres
