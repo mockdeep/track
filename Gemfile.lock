@@ -236,4 +236,4 @@ DEPENDENCIES
   spork
   strong_parameters
   thin
-  uglifier (>= 1.0.3)
+  uglifier
