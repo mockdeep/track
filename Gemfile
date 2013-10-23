@@ -3,6 +3,7 @@ source 'https://rubygems.org'
 gem 'rails'
 
 gem 'bcrypt-ruby', :require => 'bcrypt'
+gem 'foreigner'
 gem 'haml-rails'
 gem 'jquery-rails'
 gem 'pg'
