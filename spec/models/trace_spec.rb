@@ -1,8 +1,39 @@
 require 'spec_helper'
 
 describe Trace do
-  describe '#item' do
+  describe 'associations' do
     it { should belong_to(:item) }
+  end
+
+  describe '.day_count' do
+    context 'when multiple items are on the same day' do
+      it 'returns 1' do
+        time = Time.zone.now.beginning_of_day
+        create(:trace, :executed_on => time)
+        create(:trace, :executed_on => time + 1.hour)
+        expect(Trace.day_count).to eq 1
+      end
+    end
+
+    context 'when items are across 2 days' do
+      it 'returns 2' do
+        time1 = Time.zone.now
+        time2 = 1.day.ago
+        create(:trace, :executed_on => time1)
+        create(:trace, :executed_on => time2)
+        expect(Trace.day_count).to eq 2
+      end
+    end
+
+    context 'when items are across 3 days' do
+      it 'returns 3' do
+        time1 = Time.zone.now
+        time2 = 2.days.ago
+        create(:trace, :executed_on => time1)
+        create(:trace, :executed_on => time2)
+        expect(Trace.day_count).to eq 3
+      end
+    end
   end
 
   describe '#valid?' do
