@@ -21,9 +21,10 @@ class Trace < ActiveRecord::Base
   end
 
   def self.day_count
-    start_date = minimum(:executed_on) || Time.zone.now
-    count = ((Time.zone.now - start_date) / 1.day).to_i
-    count > 0 ? count : 1
+    start_date = (minimum(:executed_on) || Time.zone.now).beginning_of_day
+    end_date = Time.zone.now.beginning_of_day
+    count = ((end_date - start_date) / 1.day).to_i
+    count + 1
   end
 
   private
