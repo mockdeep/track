@@ -11,7 +11,7 @@ gem 'strong_parameters'
 gem 'thin'
 
 group :assets do
-  gem 'bootstrap-sass'
+  gem 'bootstrap-sass', '~> 2.3.1.2'
   gem 'coffee-rails'
   gem 'sass-rails'
   gem 'uglifier'
