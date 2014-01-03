@@ -21,8 +21,8 @@ class Trace < ActiveRecord::Base
   end
 
   def self.day_count
-    start_date = (minimum(:executed_on) || Time.zone.now).beginning_of_day
-    end_date = Time.zone.now.beginning_of_day
+    start_date = (minimum(:executed_on) || Time.zone.now)
+    end_date = Time.zone.now
     count = ((end_date - start_date) / 1.day).to_i
     count + 1
   end
@@ -34,4 +34,5 @@ class Trace < ActiveRecord::Base
       errors.add(:executed_on, "cannot be in future")
     end
   end
+
 end
