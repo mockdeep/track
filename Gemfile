@@ -1,8 +1,8 @@
 source 'https://rubygems.org'
 
-gem 'rails'
+gem 'rails', '~> 3.2.16'
 
-gem 'bcrypt-ruby', :require => 'bcrypt'
+gem 'bcrypt-ruby', '~> 3.0.1', :require => 'bcrypt'
 gem 'foreigner'
 gem 'haml-rails'
 gem 'jquery-rails'
