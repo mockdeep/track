@@ -16,19 +16,19 @@ describe TracesController do
     end
 
     it 'assigns an array of the current user\'s traces' do
-      assigns(:traces).should eq [trace]
+      expect(assigns(:traces)).to eq [trace]
     end
 
     it 'assigns the given item' do
-      assigns(:item).should eq item
+      expect(assigns(:item)).to eq item
     end
   end
 
   describe '#new' do
     it 'assigns a new trace associated with the given item' do
       get(:new, :item_id => item.id)
-      assigns(:trace).should be_new_record
-      assigns(:trace).item.should eq item
+      expect(assigns(:trace)).to be_new_record
+      expect(assigns(:trace).item).to eq item
     end
   end
 
@@ -49,11 +49,11 @@ describe TracesController do
     end
 
     it 'finds the given trace' do
-      assigns(:trace).should eq trace
+      expect(assigns(:trace)).to eq trace
     end
 
     it 'finds the given item' do
-      assigns(:item).should eq item
+      expect(assigns(:item)).to eq item
     end
   end
 
@@ -63,14 +63,14 @@ describe TracesController do
         :count => 5,
         :executed_on => Time.now,
       })
-      trace.reload.count.should eq 5
+      expect(trace.reload.count).to eq 5
     end
   end
 
   describe '#destroy' do
     it 'should destroy the trace associated with the given item' do
       delete(:destroy, :item_id => item.id, :id => trace.id)
-      Trace.find_by_id(trace.id).should be_nil
+      expect(Trace.find_by_id(trace.id)).to be_nil
     end
   end
 

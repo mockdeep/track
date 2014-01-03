@@ -23,19 +23,19 @@ describe Item do
     end
 
     it 'updates the week average' do
-      item.week_average.should eq 5
+      expect(item.week_average).to eq 5
     end
 
     it 'updates the month average' do
-      item.month_average.should eq 5
+      expect(item.month_average).to eq 5
     end
 
     it 'updates the year average' do
-      item.year_average.should eq 5
+      expect(item.year_average).to eq 5
     end
 
     it 'updates the lifetime average' do
-      item.lifetime_average.should eq 5
+      expect(item.lifetime_average).to eq 5
     end
   end
 end

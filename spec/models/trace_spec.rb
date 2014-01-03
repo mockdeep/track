@@ -13,8 +13,8 @@ describe Trace do
     context 'when executed_on is in future' do
       it 'returns false' do
         trace = Trace.new(:executed_on => 2.days.from_now)
-        trace.should_not be_valid
-        trace.errors.full_messages.should include('Executed on cannot be in future')
+        expect(trace).to_not be_valid
+        expect(trace.errors.full_messages).to include('Executed on cannot be in future')
       end
     end
   end
@@ -27,25 +27,25 @@ describe Trace do
 
     describe '.week' do
       it 'returns traces executed in the past week' do
-        Trace.week.should eq [trace1]
+        expect(Trace.week).to eq [trace1]
       end
     end
 
     describe '.month' do
       it 'returns traces executed in the past month' do
-        Trace.month.should include trace1
-        Trace.month.should include trace2
-        Trace.month.should_not include trace3
-        Trace.month.should_not include trace4
+        expect(Trace.month).to include trace1
+        expect(Trace.month).to include trace2
+        expect(Trace.month).to_not include trace3
+        expect(Trace.month).to_not include trace4
       end
     end
 
     describe '.year' do
       it 'returns traces executed in the past year' do
-        Trace.year.should include trace1
-        Trace.year.should include trace2
-        Trace.year.should include trace3
-        Trace.year.should_not include trace4
+        expect(Trace.year).to include trace1
+        expect(Trace.year).to include trace2
+        expect(Trace.year).to include trace3
+        expect(Trace.year).to_not include trace4
       end
     end
   end

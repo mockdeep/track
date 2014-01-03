@@ -8,19 +8,19 @@ describe User do
 
     context "when given valid credentials" do
       it "returns an instance of user" do
-        User.authenticate(@user.email, @user.password).should == @user
+        expect(User.authenticate(@user.email, @user.password)).to eq @user
       end
     end
 
     context "when given invalid password" do
       it "returns false" do
-        User.authenticate(@user.email, "bad password").should be_false
+        expect(User.authenticate(@user.email, "bad password")).to be_false
       end
     end
 
     context "when given invalid email" do
       it "returns false" do
-        User.authenticate("bad email", @user.password).should be_false
+        expect(User.authenticate("bad email", @user.password)).to be_false
       end
     end
   end

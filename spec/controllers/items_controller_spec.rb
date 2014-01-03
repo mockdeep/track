@@ -14,14 +14,14 @@ describe ItemsController do
     end
 
     it 'assigns an array of the current user\'s items' do
-      assigns(:items).should eq [item]
+      expect(assigns(:items)).to eq [item]
     end
   end
 
   describe '#new' do
     it 'assigns a new item' do
       get(:new)
-      assigns(:item).should be_new_record
+      expect(assigns(:item)).to be_new_record
     end
   end
 
@@ -39,7 +39,7 @@ describe ItemsController do
     end
 
     it 'finds the given item' do
-      assigns(:item).should eq item
+      expect(assigns(:item)).to eq item
     end
   end
 
@@ -48,14 +48,14 @@ describe ItemsController do
       put(:update, :id => item.id, :item => {
         :name => 'something',
       })
-      item.reload.name.should eq 'something'
+      expect(item.reload.name).to eq 'something'
     end
   end
 
   describe '#destroy' do
     it 'should destroy the item' do
       delete(:destroy, :id => item.id)
-      Item.find_by_id(item.id).should be_nil
+      expect(Item.find_by_id(item.id)).to be_nil
     end
   end
 end

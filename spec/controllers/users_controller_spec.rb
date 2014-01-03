@@ -10,11 +10,11 @@ describe UsersController do
     end
 
     it 'initializes an instance of User' do
-      @user.should be_instance_of User
+      expect(@user).to be_instance_of User
     end
 
     it "doesn't save the user record" do
-      @user.should be_new_record
+      expect(@user).to be_new_record
     end
   end
 
@@ -33,16 +33,16 @@ describe UsersController do
       end
 
       it 'flashes a success message' do
-        flash[:notice].should == 'Signed up!'
+        expect(flash[:notice]).to eq 'Signed up!'
       end
 
       it 'creates a new user' do
         user = assigns(:user)
-        user.email.should == 'b@b.com'
+        expect(user.email).to eq 'b@b.com'
       end
 
       it "logs the user in" do
-        controller.send(:current_user).should == assigns(:user)
+        expect(controller.send(:current_user)).to eq assigns(:user)
       end
     end
 
@@ -52,11 +52,11 @@ describe UsersController do
       end
 
       it 'flashes an error' do
-        flash.now[:error].should =~ /problem creating your account/
+        expect(flash.now[:error]).to match /problem creating your account/
       end
 
       it 'renders the new template' do
-        response.should render_template('users/new')
+        expect(response).to render_template('users/new')
       end
     end
   end
