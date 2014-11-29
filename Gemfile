@@ -10,7 +10,7 @@ gem 'haml-rails'
 gem 'jquery-rails'
 gem 'pg'
 gem 'strong_parameters'
-gem 'thin'
+gem 'unicorn'
 
 group :assets do
   gem 'bootstrap-sass', '~> 2.3.1.2'
