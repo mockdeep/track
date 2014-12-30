@@ -10,7 +10,8 @@ Track::Application.configure do
   config.assets.compile = false
   config.assets.digest = true
 
-  # config.force_ssl = true
+  config.force_ssl = true
+
   config.i18n.fallbacks = true
 
   config.active_support.deprecation = :notify
