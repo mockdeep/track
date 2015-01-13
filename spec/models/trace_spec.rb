@@ -85,7 +85,7 @@ describe Trace do
     context 'on create' do
       it 'updates averages for its item' do
         item = create(:item)
-        item.should_receive(:update_averages!)
+        expect(item).to receive(:update_averages!)
         create(:trace, :item => item)
       end
     end

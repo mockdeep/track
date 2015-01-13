@@ -8,7 +8,6 @@ Spork.prefork do
   ENV["RAILS_ENV"] ||= 'test'
   require File.expand_path("../../config/environment", __FILE__)
   require 'rspec/rails'
-  require 'rspec/autorun'
   Dir[Rails.root.join("spec/support/**/*.rb")].each {|f| require f}
 
   RSpec.configure do |config|
@@ -17,6 +16,9 @@ Spork.prefork do
       expect_config.syntax = :expect
     end
 
+    config.raise_errors_for_deprecations!
+    config.infer_spec_type_from_file_location!
+    config.render_views
     config.include(FactoryGirl::Syntax::Methods)
     config.fixture_path = "#{::Rails.root}/spec/fixtures"
     config.use_transactional_fixtures = true
