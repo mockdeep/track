@@ -50,7 +50,7 @@ describe UsersController do
       end
 
       it 'flashes an error' do
-        expect(flash.now[:error]).to match /problem creating your account/
+        expect(flash.now[:error]).to match(/problem creating your account/)
       end
 
       it 'renders the new template' do

@@ -2,7 +2,8 @@ class SessionsController < ApplicationController
   skip_before_filter :authenticate_user!
 
   def create
-    if user = User.authenticate(params[:email], params[:password])
+    user = User.authenticate(params[:email], params[:password])
+    if user
       self.current_user = user
       redirect_to root_path, :notice => 'Logged in!'
     else

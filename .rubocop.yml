@@ -10,6 +10,7 @@ AllCops:
   Exclude:
     - vendor/**/*
     - db/schema.rb
+  RunRailsCops: true
 
 # pending rails 4 upgrade
 Rails/ActionFilter:

@@ -6,20 +6,6 @@
 # versions of RuboCop, may require this file to be generated again.
 
 # Offense count: 1
-Lint/AmbiguousRegexpLiteral:
-  Enabled: false
-
-# Offense count: 1
-# Configuration parameters: AllowSafeAssignment.
-Lint/AssignmentInCondition:
-  Enabled: false
-
-# Offense count: 1
-# Cop supports --auto-correct.
-Lint/DeprecatedClassMethods:
-  Enabled: false
-
-# Offense count: 1
 Metrics/AbcSize:
   Max: 31
 
