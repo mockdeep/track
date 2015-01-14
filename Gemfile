@@ -2,6 +2,8 @@ source 'https://rubygems.org'
 
 ruby '2.0.0'
 
+gem 'dotenv-rails', :groups => [:development, :test]
+
 gem 'rails', '~> 3.2.16'
 
 gem 'bcrypt-ruby', '~> 3.0.1', :require => 'bcrypt'
@@ -37,7 +39,5 @@ group :test do
   gem 'fakeweb'
   gem 'guard-rspec'
   gem 'guard-rubocop'
-  gem 'guard-spork'
   gem 'simplecov'
-  gem 'spork'
 end

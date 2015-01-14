@@ -14,11 +14,12 @@ class Item < ActiveRecord::Base
   end
 
   def update_averages!
+    day_count = traces.day_count
     update_attributes({
-      :week_average => traces.week.sum(:count).to_f / [7, traces.day_count].min,
-      :month_average => traces.month.sum(:count).to_f / [30, traces.day_count].min,
-      :year_average => traces.year.sum(:count).to_f / [365, traces.day_count].min,
-      :lifetime_average => traces.sum(:count).to_f / traces.day_count,
+      :week_average => traces.week.sum(:count).to_f / [7, day_count].min,
+      :month_average => traces.month.sum(:count).to_f / [30, day_count].min,
+      :year_average => traces.year.sum(:count).to_f / [365, day_count].min,
+      :lifetime_average => traces.sum(:count).to_f / day_count,
     })
   end
 end

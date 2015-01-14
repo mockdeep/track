@@ -45,7 +45,8 @@ describe Trace do
       it 'returns false' do
         trace = Trace.new(:executed_on => 2.days.from_now)
         expect(trace).to_not be_valid
-        expect(trace.errors.full_messages).to include('Executed on cannot be in future')
+        message = 'Executed on cannot be in future'
+        expect(trace.errors.full_messages).to include(message)
       end
     end
   end
