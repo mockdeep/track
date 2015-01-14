@@ -1,0 +1,20 @@
+inherit_from: .rubocop_todo.yml
+
+AllCops:
+  Include:
+    - !ruby/regexp /.*\.rake/
+    - Gemfile
+    - Guardfile
+    - Rakefile
+    - config.ru
+  Exclude:
+    - vendor/**/*
+    - db/schema.rb
+
+# pending rails 4 upgrade
+Rails/ActionFilter:
+  Enabled: false
+
+Output:
+  Exclude:
+    - config/unicorn.rb

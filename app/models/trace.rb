@@ -5,20 +5,16 @@ class Trace < ActiveRecord::Base
 
   after_save :update_averages!
 
-  delegate :user, :to => :item
+  delegate :user, :update_averages!, :to => :item
 
-  scope :week, where("executed_on >= ?", 1.week.ago)
-  scope :month, where("executed_on >= ?", 1.month.ago)
-  scope :year, where("executed_on >= ?", 1.year.ago)
+  scope :week, -> { where("executed_on >= ?", 1.week.ago) }
+  scope :month, -> { where("executed_on >= ?", 1.month.ago) }
+  scope :year, -> { where("executed_on >= ?", 1.year.ago) }
 
-  default_scope order("executed_on DESC")
+  default_scope { order("executed_on DESC") }
 
   validates :count, :item, :executed_on, :presence => true
   validate :executed_on_not_in_future
-
-  def update_averages!
-    item.update_averages!
-  end
 
   def self.day_count
     start_date = (minimum(:executed_on) || Time.zone.now)

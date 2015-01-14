@@ -36,6 +36,7 @@ group :test do
   gem 'database_cleaner'
   gem 'fakeweb'
   gem 'guard-rspec'
+  gem 'guard-rubocop'
   gem 'guard-spork'
   gem 'simplecov'
   gem 'spork'
