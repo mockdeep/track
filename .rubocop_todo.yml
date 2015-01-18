@@ -12,9 +12,3 @@ Metrics/AbcSize:
 # Offense count: 14
 Style/Documentation:
   Enabled: false
-
-# Offense count: 5
-# Cop supports --auto-correct.
-# Configuration parameters: EnforcedStyleForMultiline, SupportedStyles.
-Style/TrailingComma:
-  Enabled: false
