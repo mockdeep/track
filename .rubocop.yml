@@ -26,6 +26,3 @@ Style/TrailingComma:
 
 Style/Documentation:
   Enabled: false
-
-Metrics/AbcSize:
-  Max: 31
