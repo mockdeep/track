@@ -14,6 +14,10 @@ gem 'pg'
 gem 'strong_parameters'
 gem 'unicorn'
 
+group :production do
+  gem 'rails_12factor'
+end
+
 group :assets do
   gem 'bootstrap-sass', '~> 2.3.1.2'
   gem 'coffee-rails'
