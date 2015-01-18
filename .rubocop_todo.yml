@@ -13,10 +13,6 @@ Metrics/AbcSize:
 Style/Documentation:
   Enabled: false
 
-# Offense count: 4
-Style/RegexpLiteral:
-  MaxSlashes: 0
-
 # Offense count: 10
 # Cop supports --auto-correct.
 Style/SingleSpaceBeforeFirstArg:
