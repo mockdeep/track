@@ -1,5 +1,3 @@
-inherit_from: .rubocop_todo.yml
-
 AllCops:
   Include:
     - !ruby/regexp /.*\.rake\z/
@@ -25,3 +23,9 @@ Style/GuardClause:
 
 Style/TrailingComma:
   EnforcedStyleForMultiline: comma
+
+Style/Documentation:
+  Enabled: false
+
+Metrics/AbcSize:
+  Max: 31
