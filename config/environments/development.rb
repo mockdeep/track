@@ -1,5 +1,4 @@
 Track::Application.configure do
-
   config.cache_classes = false
 
   config.whiny_nils = true
@@ -20,5 +19,4 @@ Track::Application.configure do
   config.assets.compress = false
 
   config.assets.debug = true
-
 end

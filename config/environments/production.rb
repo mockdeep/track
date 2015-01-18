@@ -1,5 +1,4 @@
 Track::Application.configure do
-
   config.cache_classes = true
 
   config.consider_all_requests_local       = false
@@ -15,5 +14,4 @@ Track::Application.configure do
   config.i18n.fallbacks = true
 
   config.active_support.deprecation = :notify
-
 end

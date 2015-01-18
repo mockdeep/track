@@ -91,5 +91,4 @@ describe Trace do
       end
     end
   end
-
 end

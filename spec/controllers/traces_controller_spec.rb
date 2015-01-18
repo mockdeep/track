@@ -73,5 +73,4 @@ describe TracesController do
       expect(Trace.find_by_id(trace.id)).to be_nil
     end
   end
-
 end
