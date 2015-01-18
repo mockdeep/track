@@ -21,6 +21,7 @@ end
 group :assets do
   gem 'bootstrap-sass', '~> 2.3.1.2'
   gem 'coffee-rails'
+  gem 'sass', '~> 3.2.19' # https://github.com/sass/sass/issues/1028
   gem 'sass-rails'
   gem 'uglifier'
 end
