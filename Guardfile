@@ -1,7 +1,7 @@
 guard 'rspec', cmd: 'rspec --drb' do
   watch(/^spec\/.+_spec\.rb$/)
   watch(/^lib\/(.+)\.rb$/) { |m| "spec/lib/#{m[1]}_spec.rb" }
-  watch('spec/spec_helper.rb') { "spec" }
+  watch('spec/spec_helper.rb') { 'spec' }
 
   # Rails example
   watch(/^app\/(.+)\.rb$/) { |m| "spec/#{m[1]}_spec.rb" }
@@ -13,8 +13,8 @@ guard 'rspec', cmd: 'rspec --drb' do
       "spec/acceptance/#{m[1]}_spec.rb"
     ]
   end
-  watch(%r{^spec/support/(.+)\.rb$}) { "spec" }
-  watch(%r{^spec/factories/(.+)\.rb$}) { "spec" }
-  watch('config/routes.rb') { "spec/controllers" }
-  watch('app/controllers/application_controller.rb') { "spec/controllers" }
+  watch(%r{^spec/support/(.+)\.rb$}) { 'spec' }
+  watch(%r{^spec/factories/(.+)\.rb$}) { 'spec' }
+  watch('config/routes.rb') { 'spec/controllers' }
+  watch('app/controllers/application_controller.rb') { 'spec/controllers' }
 end

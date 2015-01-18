@@ -39,7 +39,7 @@ describe UsersController do
         expect(user.email).to eq 'b@b.com'
       end
 
-      it "logs the user in" do
+      it 'logs the user in' do
         expect(controller.send(:current_user)).to eq assigns(:user)
       end
     end

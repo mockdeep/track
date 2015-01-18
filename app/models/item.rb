@@ -5,7 +5,7 @@ class Item < ActiveRecord::Base
 
   has_many :traces, dependent: :destroy
 
-  default_scope { order("created_at DESC") }
+  default_scope { order('created_at DESC') }
 
   validates :name, :user, presence: true
 

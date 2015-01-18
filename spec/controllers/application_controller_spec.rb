@@ -37,13 +37,13 @@ describe ApplicationController do
       @user = FactoryGirl.create(:user)
     end
 
-    it "clears the session" do
+    it 'clears the session' do
       session[:blah] = 'something'
       controller.send(:current_user=, @user)
       expect(session[:blah]).to be_nil
     end
 
-    it "sets the current user" do
+    it 'sets the current user' do
       controller.send(:current_user=, @user)
       expect(session[:user_id]).to eq @user.id
     end

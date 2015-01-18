@@ -6,21 +6,21 @@ describe User do
       @user = FactoryGirl.create(:user)
     end
 
-    context "when given valid credentials" do
-      it "returns an instance of user" do
+    context 'when given valid credentials' do
+      it 'returns an instance of user' do
         expect(User.authenticate(@user.email, @user.password)).to eq @user
       end
     end
 
-    context "when given invalid password" do
-      it "returns false" do
-        expect(User.authenticate(@user.email, "bad password")).to be false
+    context 'when given invalid password' do
+      it 'returns false' do
+        expect(User.authenticate(@user.email, 'bad password')).to be false
       end
     end
 
-    context "when given invalid email" do
-      it "returns false" do
-        expect(User.authenticate("bad email", @user.password)).to be_nil
+    context 'when given invalid email' do
+      it 'returns false' do
+        expect(User.authenticate('bad email', @user.password)).to be_nil
       end
     end
   end

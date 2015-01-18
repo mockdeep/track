@@ -1,10 +1,10 @@
 require File.expand_path('../boot', __FILE__)
 
-require "active_record/railtie"
-require "action_controller/railtie"
-require "action_mailer/railtie"
-require "active_resource/railtie"
-require "sprockets/railtie"
+require 'active_record/railtie'
+require 'action_controller/railtie'
+require 'action_mailer/railtie'
+require 'active_resource/railtie'
+require 'sprockets/railtie'
 
 if defined?(Bundler)
   Bundler.require(*Rails.groups(assets: %w(development test)))
@@ -16,7 +16,7 @@ module Track
 
     config.i18n.enforce_available_locales = true
 
-    config.encoding = "utf-8"
+    config.encoding = 'utf-8'
 
     config.filter_parameters += [:password]
 
