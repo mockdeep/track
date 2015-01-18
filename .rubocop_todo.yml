@@ -13,17 +13,6 @@ Metrics/AbcSize:
 Style/Documentation:
   Enabled: false
 
-# Offense count: 10
-# Cop supports --auto-correct.
-Style/SingleSpaceBeforeFirstArg:
-  Enabled: false
-
-# Offense count: 2
-# Cop supports --auto-correct.
-# Configuration parameters: EnforcedStyle, SupportedStyles, EnforcedStyleForEmptyBraces, SpaceBeforeBlockParameters.
-Style/SpaceInsideBlockBraces:
-  Enabled: false
-
 # Offense count: 70
 # Cop supports --auto-correct.
 # Configuration parameters: EnforcedStyle, SupportedStyles.
