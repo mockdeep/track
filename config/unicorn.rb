@@ -17,8 +17,5 @@ after_fork do |_server, _worker|
       'master to send QUIT'
   end
 
-  if defined?(ActiveRecord::Base)
-    ActiveRecord::Base.establish_connection
-  end
-
+  ActiveRecord::Base.establish_connection if defined?(ActiveRecord::Base)
 end

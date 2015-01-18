@@ -34,12 +34,12 @@ describe TracesController do
 
   describe '#create' do
     it 'creates a new trace associated with a given item' do
-      expect {
+      expect do
         post(:create, :item_id => item.id, :trace => {
           :count => 5,
           :executed_on => Time.now,
         })
-      }.to change(item.traces, :count).by(1)
+      end.to change(item.traces, :count).by(1)
     end
   end
 

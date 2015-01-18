@@ -1,6 +1,6 @@
 class Item < ActiveRecord::Base
   attr_accessible :week_average, :month_average, :year_average,
-    :lifetime_average, :name
+                  :lifetime_average, :name
   belongs_to :user
 
   has_many :traces, :dependent => :destroy
@@ -15,11 +15,11 @@ class Item < ActiveRecord::Base
 
   def update_averages!
     day_count = traces.day_count
-    update_attributes({
+    update_attributes(
       :week_average => traces.week.sum(:count).to_f / [7, day_count].min,
       :month_average => traces.month.sum(:count).to_f / [30, day_count].min,
       :year_average => traces.year.sum(:count).to_f / [365, day_count].min,
       :lifetime_average => traces.sum(:count).to_f / day_count,
-    })
+    )
   end
 end

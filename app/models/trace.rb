@@ -30,5 +30,4 @@ class Trace < ActiveRecord::Base
       errors.add(:executed_on, "cannot be in future")
     end
   end
-
 end

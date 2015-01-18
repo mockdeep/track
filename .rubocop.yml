@@ -2,7 +2,7 @@ inherit_from: .rubocop_todo.yml
 
 AllCops:
   Include:
-    - !ruby/regexp /.*\.rake/
+    - !ruby/regexp /.*\.rake\z/
     - Gemfile
     - Guardfile
     - Rakefile
@@ -19,3 +19,6 @@ Rails/ActionFilter:
 Output:
   Exclude:
     - config/unicorn.rb
+
+Style/GuardClause:
+  MinBodyLength: 4

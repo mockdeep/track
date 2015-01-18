@@ -27,9 +27,9 @@ describe ItemsController do
 
   describe '#create' do
     it 'creates a new item' do
-      expect {
+      expect do
         post(:create, :item => { :name => 'blah' })
-      }.to change(Item, :count).by(1)
+      end.to change(Item, :count).by(1)
     end
   end
 

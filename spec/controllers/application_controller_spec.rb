@@ -25,9 +25,9 @@ describe ApplicationController do
       end
 
       it 'raises an exception' do
-        expect {
+        expect do
           controller.send(:current_user)
-        }.to raise_error ActiveRecord::RecordNotFound
+        end.to raise_error ActiveRecord::RecordNotFound
       end
     end
   end
