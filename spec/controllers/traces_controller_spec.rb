@@ -4,6 +4,7 @@ describe TracesController do
   let(:trace) { create(:trace) }
   let(:item) { trace.item }
   let(:user) { item.user }
+  let(:trace_params) { { count: 5, executed_on: Time.now } }
 
   before(:each) do
     session[:user_id] = user.id
@@ -35,10 +36,7 @@ describe TracesController do
   describe '#create' do
     it 'creates a new trace associated with a given item' do
       expect do
-        post(:create, item_id: item.id, trace: {
-          count: 5,
-          executed_on: Time.now,
-        })
+        post(:create, item_id: item.id, trace: trace_params)
       end.to change(item.traces, :count).by(1)
     end
   end
@@ -59,10 +57,7 @@ describe TracesController do
 
   describe '#update' do
     it 'updates the trace associated with the given item' do
-      put(:update, item_id: item.id, id: trace.id, trace: {
-        count: 5,
-        executed_on: Time.now,
-      })
+      put(:update, item_id: item.id, id: trace.id, trace: trace_params)
       expect(trace.reload.count).to eq 5
     end
   end

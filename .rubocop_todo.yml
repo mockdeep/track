@@ -13,12 +13,6 @@ Metrics/AbcSize:
 Style/Documentation:
   Enabled: false
 
-# Offense count: 8
-# Cop supports --auto-correct.
-# Configuration parameters: EnforcedStyle, SupportedStyles.
-Style/IndentHash:
-  Enabled: false
-
 # Offense count: 4
 Style/RegexpLiteral:
   MaxSlashes: 0

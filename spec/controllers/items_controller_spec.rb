@@ -45,9 +45,7 @@ describe ItemsController do
 
   describe '#update' do
     it 'updates the item' do
-      put(:update, id: item.id, item: {
-        name: 'something',
-      })
+      put(:update, id: item.id, item: { name: 'something' })
       expect(item.reload.name).to eq 'something'
     end
   end
