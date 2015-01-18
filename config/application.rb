@@ -7,7 +7,7 @@ require "active_resource/railtie"
 require "sprockets/railtie"
 
 if defined?(Bundler)
-  Bundler.require(*Rails.groups(:assets => %w(development test)))
+  Bundler.require(*Rails.groups(assets: %w(development test)))
 end
 
 module Track

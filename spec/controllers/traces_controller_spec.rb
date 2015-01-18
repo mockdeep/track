@@ -12,7 +12,7 @@ describe TracesController do
   describe '#index' do
     before :each do
       create(:trace)
-      get(:index, :item_id => item.id)
+      get(:index, item_id: item.id)
     end
 
     it 'assigns an array of the current user\'s traces' do
@@ -26,7 +26,7 @@ describe TracesController do
 
   describe '#new' do
     it 'assigns a new trace associated with the given item' do
-      get(:new, :item_id => item.id)
+      get(:new, item_id: item.id)
       expect(assigns(:trace)).to be_new_record
       expect(assigns(:trace).item).to eq item
     end
@@ -35,9 +35,9 @@ describe TracesController do
   describe '#create' do
     it 'creates a new trace associated with a given item' do
       expect do
-        post(:create, :item_id => item.id, :trace => {
-          :count => 5,
-          :executed_on => Time.now,
+        post(:create, item_id: item.id, trace: {
+          count: 5,
+          executed_on: Time.now,
         })
       end.to change(item.traces, :count).by(1)
     end
@@ -45,7 +45,7 @@ describe TracesController do
 
   describe '#edit' do
     before :each do
-      get(:edit, :item_id => item.id, :id => trace.id)
+      get(:edit, item_id: item.id, id: trace.id)
     end
 
     it 'finds the given trace' do
@@ -59,9 +59,9 @@ describe TracesController do
 
   describe '#update' do
     it 'updates the trace associated with the given item' do
-      put(:update, :item_id => item.id, :id => trace.id, :trace => {
-        :count => 5,
-        :executed_on => Time.now,
+      put(:update, item_id: item.id, id: trace.id, trace: {
+        count: 5,
+        executed_on: Time.now,
       })
       expect(trace.reload.count).to eq 5
     end
@@ -69,7 +69,7 @@ describe TracesController do
 
   describe '#destroy' do
     it 'should destroy the trace associated with the given item' do
-      delete(:destroy, :item_id => item.id, :id => trace.id)
+      delete(:destroy, item_id: item.id, id: trace.id)
       expect(Trace.find_by_id(trace.id)).to be_nil
     end
   end

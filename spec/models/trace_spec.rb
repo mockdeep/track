@@ -9,8 +9,8 @@ describe Trace do
     context 'when multiple items are on the same day' do
       it 'returns 1' do
         time = Time.zone.now.beginning_of_day
-        create(:trace, :executed_on => time)
-        create(:trace, :executed_on => time + 1.hour)
+        create(:trace, executed_on: time)
+        create(:trace, executed_on: time + 1.hour)
         expect(Trace.day_count).to eq 1
       end
     end
@@ -19,8 +19,8 @@ describe Trace do
       it 'returns 2' do
         time1 = Time.zone.now
         time2 = 1.day.ago
-        create(:trace, :executed_on => time1)
-        create(:trace, :executed_on => time2)
+        create(:trace, executed_on: time1)
+        create(:trace, executed_on: time2)
         expect(Trace.day_count).to eq 2
       end
     end
@@ -29,8 +29,8 @@ describe Trace do
       it 'returns 3' do
         time1 = Time.zone.now
         time2 = 2.days.ago
-        create(:trace, :executed_on => time1)
-        create(:trace, :executed_on => time2)
+        create(:trace, executed_on: time1)
+        create(:trace, executed_on: time2)
         expect(Trace.day_count).to eq 3
       end
     end
@@ -43,7 +43,7 @@ describe Trace do
 
     context 'when executed_on is in future' do
       it 'returns false' do
-        trace = Trace.new(:executed_on => 2.days.from_now)
+        trace = Trace.new(executed_on: 2.days.from_now)
         expect(trace).to_not be_valid
         message = 'Executed on cannot be in future'
         expect(trace.errors.full_messages).to include(message)
@@ -52,10 +52,10 @@ describe Trace do
   end
 
   describe 'scopes' do
-    let!(:trace1) { create(:trace, :executed_on => Time.now, :count => 3) }
-    let!(:trace2) { create(:trace, :executed_on => 8.days.ago, :count => 4) }
-    let!(:trace3) { create(:trace, :executed_on => 2.months.ago, :count => 5) }
-    let!(:trace4) { create(:trace, :executed_on => 2.years.ago, :count => 6) }
+    let!(:trace1) { create(:trace, executed_on: Time.now, count: 3) }
+    let!(:trace2) { create(:trace, executed_on: 8.days.ago, count: 4) }
+    let!(:trace3) { create(:trace, executed_on: 2.months.ago, count: 5) }
+    let!(:trace4) { create(:trace, executed_on: 2.years.ago, count: 6) }
 
     describe '.week' do
       it 'returns traces executed in the past week' do
@@ -87,7 +87,7 @@ describe Trace do
       it 'updates averages for its item' do
         item = create(:item)
         expect(item).to receive(:update_averages!)
-        create(:trace, :item => item)
+        create(:trace, item: item)
       end
     end
   end

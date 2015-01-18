@@ -13,12 +13,6 @@ Metrics/AbcSize:
 Style/Documentation:
   Enabled: false
 
-# Offense count: 125
-# Cop supports --auto-correct.
-# Configuration parameters: SupportedStyles.
-Style/HashSyntax:
-  EnforcedStyle: hash_rockets
-
 # Offense count: 8
 # Cop supports --auto-correct.
 # Configuration parameters: EnforcedStyle, SupportedStyles.

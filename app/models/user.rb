@@ -5,8 +5,8 @@ class User < ActiveRecord::Base
 
   has_many :items
 
-  validates :email, :presence => true
-  validates :password, :presence => true, :on => :create
+  validates :email, presence: true
+  validates :password, presence: true, on: :create
 
   def self.authenticate(email, password)
     find_by_email(email).try(:authenticate, password)

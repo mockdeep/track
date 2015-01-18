@@ -3,11 +3,11 @@ class Item < ActiveRecord::Base
                   :lifetime_average, :name
   belongs_to :user
 
-  has_many :traces, :dependent => :destroy
+  has_many :traces, dependent: :destroy
 
   default_scope { order("created_at DESC") }
 
-  validates :name, :user, :presence => true
+  validates :name, :user, presence: true
 
   def self.update_averages!
     all.collect(&:update_averages!)
@@ -16,10 +16,10 @@ class Item < ActiveRecord::Base
   def update_averages!
     day_count = traces.day_count
     update_attributes(
-      :week_average => traces.week.sum(:count).to_f / [7, day_count].min,
-      :month_average => traces.month.sum(:count).to_f / [30, day_count].min,
-      :year_average => traces.year.sum(:count).to_f / [365, day_count].min,
-      :lifetime_average => traces.sum(:count).to_f / day_count,
+      week_average: traces.week.sum(:count).to_f / [7, day_count].min,
+      month_average: traces.month.sum(:count).to_f / [30, day_count].min,
+      year_average: traces.year.sum(:count).to_f / [365, day_count].min,
+      lifetime_average: traces.sum(:count).to_f / day_count,
     )
   end
 end

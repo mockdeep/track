@@ -28,14 +28,14 @@ describe ItemsController do
   describe '#create' do
     it 'creates a new item' do
       expect do
-        post(:create, :item => { :name => 'blah' })
+        post(:create, item: { name: 'blah' })
       end.to change(Item, :count).by(1)
     end
   end
 
   describe '#edit' do
     before :each do
-      get(:edit, :id => item.id)
+      get(:edit, id: item.id)
     end
 
     it 'finds the given item' do
@@ -45,8 +45,8 @@ describe ItemsController do
 
   describe '#update' do
     it 'updates the item' do
-      put(:update, :id => item.id, :item => {
-        :name => 'something',
+      put(:update, id: item.id, item: {
+        name: 'something',
       })
       expect(item.reload.name).to eq 'something'
     end
@@ -54,7 +54,7 @@ describe ItemsController do
 
   describe '#destroy' do
     it 'should destroy the item' do
-      delete(:destroy, :id => item.id)
+      delete(:destroy, id: item.id)
       expect(Item.find_by_id(item.id)).to be_nil
     end
   end

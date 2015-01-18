@@ -15,11 +15,11 @@ describe Item do
   end
 
   describe '#update_averages!' do
-    let(:trace) { create(:trace, :count => 5) }
+    let(:trace) { create(:trace, count: 5) }
     let(:item) { trace.item }
 
     before :each do
-      item.traces.create(:count => 5)
+      item.traces.create(count: 5)
     end
 
     it 'updates the week average' do

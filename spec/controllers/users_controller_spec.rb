@@ -19,15 +19,15 @@ describe UsersController do
   describe '#create' do
     before :each do
       @valid_params = {
-        :email => 'b@b.com',
-        :password => 'b',
-        :password_confirmation => 'b',
+        email: 'b@b.com',
+        password: 'b',
+        password_confirmation: 'b',
       }
     end
 
     context 'given valid params' do
       before :each do
-        post(:create, :user => @valid_params)
+        post(:create, user: @valid_params)
       end
 
       it 'flashes a success message' do
@@ -46,7 +46,7 @@ describe UsersController do
 
     context 'given an invalid email' do
       before :each do
-        post(:create, :user => @valid_params.merge(:password => 'c'))
+        post(:create, user: @valid_params.merge(password: 'c'))
       end
 
       it 'flashes an error' do
